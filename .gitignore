@@ -43,3 +43,7 @@ tmp/*
 !tmp/.gitkeep
 uploads/*
 !uploads/.gitkeep
+
+export-pdf/*
+!src/export-pdf/.gitkeep
+
