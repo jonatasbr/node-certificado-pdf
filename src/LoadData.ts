@@ -1,18 +1,38 @@
-interface IData {
+import csvParse from 'csv-parse';
+import fs from 'fs';
+export interface IParticipantData {
   cpf: string;
   name: string;
 }
 
 export class LoadData {
-  execute(): IData[] {
-    const data: IData[] = [
-      { cpf: '73120804134', name: 'JONATAS BRAZ DE SOUSA' },
-      { cpf: '98765432100', name: 'HENOR VATSON HELER' },
-      { cpf: '10212348533', name: 'HENRIQUE SILVA BRAZ' },
-      { cpf: '45687792315', name: 'JULIA CAROLINE SILVA BRAZ' },
-      { cpf: '15642289123', name: 'VICTOR MARQUES FREIRE' },
-      { cpf: '75338158742', name: 'DIEGO ALVES DE SOUSA' },
-    ];
-    return data;
+  async execute(file): Promise<IParticipantData[]> {
+    return new Promise((resolve, reject) => {
+      const stream = fs.createReadStream('src/data/data.csv');
+      const participants: IParticipantData[] = [];
+
+      const parseFile = csvParse({ delimiter: ';' });
+
+      stream.pipe(parseFile);
+
+      parseFile
+        .on('data', async (line) => {
+          const [cpf, name] = line;
+
+          console.log(cpf, name);
+          participants.push({
+            cpf,
+            name,
+          });
+          return participants;
+        })
+        .on('end', () => {
+          resolve(participants);
+          return participants;
+        })
+        .on('error', (err) => {
+          reject(err);
+        });
+    });
   }
 }

@@ -45,5 +45,6 @@ uploads/*
 !uploads/.gitkeep
 
 export-pdf/*
-!src/export-pdf/.gitkeep
-
+*.pdf
+data/*
+*.csv

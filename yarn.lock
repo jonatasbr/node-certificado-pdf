@@ -1376,10 +1376,10 @@
   dependencies:
     "cssom" "~0.3.6"
 
-"csv-parse@^5.4.0":
-  "integrity" "sha512-JiQosUWiOFgp4hQn0an+SBoV9IKdqzhROM0iiN4LB7UpfJBlsSJlWl9nq4zGgxgMAzHJ6V4t29VAVD+3+2NJAg=="
-  "resolved" "https://registry.npmjs.org/csv-parse/-/csv-parse-5.4.0.tgz"
-  "version" "5.4.0"
+"csv-parse@^4.15.3":
+  "integrity" "sha512-cO1I/zmz4w2dcKHVvpCr7JVRu8/FymG5OEpmvsZYlccYolPBLoVGKUHgNoc4ZGkFeFlWGEDmMyBM+TTqRdW/wg=="
+  "resolved" "https://registry.npmjs.org/csv-parse/-/csv-parse-4.16.3.tgz"
+  "version" "4.16.3"
 
 "data-urls@^2.0.0":
   "integrity" "sha512-X5eWTSXO/BJmpdIKCRuKUgSCgAN0OwliVK3yPKbwIWU1Tdw5BRajxlzMidvh+gwko9AfQ9zIj52pzF91Q3YAvQ=="
