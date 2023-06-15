@@ -1,14 +1,19 @@
 import csvParse from 'csv-parse';
 import fs from 'fs';
+import dotenv from 'dotenv';
+
+dotenv.config();
 export interface IParticipantData {
   cpf: string;
   name: string;
 }
 
 export class LoadData {
-  async execute(file): Promise<IParticipantData[]> {
+  async execute(): Promise<IParticipantData[]> {
     return new Promise((resolve, reject) => {
-      const stream = fs.createReadStream('src/data/data.csv');
+      const stream = fs.createReadStream(
+        `src/data/${process.env.IDENTIFIER_CODE}.csv`,
+      );
       const participants: IParticipantData[] = [];
 
       const parseFile = csvParse({ delimiter: ';' });
@@ -17,9 +22,7 @@ export class LoadData {
 
       parseFile
         .on('data', async (line) => {
-          const [cpf, name] = line;
-
-          console.log(cpf, name);
+          const [name, cpf] = line;
           participants.push({
             cpf,
             name,

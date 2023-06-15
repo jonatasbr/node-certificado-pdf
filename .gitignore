@@ -44,7 +44,10 @@ tmp/*
 uploads/*
 !uploads/.gitkeep
 
-export-pdf/*
+export-pdf/
+data/
 *.pdf
-data/*
 *.csv
+*.jpg
+*.jpeg
+*.zip
